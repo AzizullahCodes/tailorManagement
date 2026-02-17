@@ -64,19 +64,14 @@ const handleSubmit = (e)=>{
     repeatPassword
   }
   console.log('object ',obj)
-  let checkInLocalStorage = JSON.parse(localStorage.getItem('user') || []);
-  let check = checkInLocalStorage.find((item)=>{
-    return item.email === email
-  })
-  if(check){
-    console.log('user already existed')
-    return
+  let get = localStorage.getItem('user');
+  if(get){
+    console.log('existed')
   }
-  checkInLocalStorage.push(obj)
-
-  if(checkInLocalStorage){
-    console.log(checkInLocalStorage)
-  }
+ else{
+  console.log('not')
+  localStorage.setItem('user',JSON.stringify(obj))
+ }
   
 }
 
@@ -103,7 +98,7 @@ const handleSubmit = (e)=>{
 
 }
 
-
+    
  
 
 export default SignUp
