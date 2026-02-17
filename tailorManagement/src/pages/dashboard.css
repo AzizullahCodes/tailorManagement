@@ -1,0 +1,21 @@
+.dashboard {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.dashboard-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dashboard-buttons a,
+.dashboard-buttons button {
+  padding: 12px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
