@@ -3,9 +3,10 @@ import "./Dashboard.css";
 
 function Dashboard() {
   const navigate = useNavigate();
+  // 
 
   const logout = () => {
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("users");
     navigate("/");
   };
 

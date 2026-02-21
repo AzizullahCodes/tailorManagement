@@ -1,35 +1,20 @@
-.signup-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f4f4f4;
-}
+.gradient-custom-3 {
+/* fallback for old browsers */
+background: #84fab0;
 
-.signup-form {
-  background: white;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
-}
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
 
-.signup-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 }
+.gradient-custom-4 {
+/* fallback for old browsers */
+background: #84fab0;
 
-.signup-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-}
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
 
-.signup-form button {
-  width: 100%;
-  padding: 10px;
-  background: black;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }

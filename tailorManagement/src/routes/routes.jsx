@@ -2,6 +2,7 @@
 import {Routes,Route} from 'react-router-dom';
 import Login from '../pages/login';
 import SignUp from '../pages/signup';
+import Dashboard from '../pages/dashboard';
 import AddCustomer from '../pages/addCustomer';
 import SearchCustomer from '../pages/searchCustomer';
 function MyRoutes(){
@@ -9,6 +10,7 @@ function MyRoutes(){
         <Routes>
             <Route path='/' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/addCustomer' element={<AddCustomer/>}/>
             <Route path='/searchCustomer' element={<SearchCustomer/>}/>
         </Routes>

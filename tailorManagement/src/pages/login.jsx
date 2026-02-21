@@ -2,8 +2,6 @@
 // import { useNavigate, Link } from "react-router-dom";
 // import "./Login.css";
 
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
 
 // function Login() {
 //   const [form, setForm] = useState({ email: "", password: "" });
@@ -43,43 +41,60 @@ import { useNavigate } from "react-router-dom";
 
 // export default Login;
 
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 const Login = ()=>{
-  const [form,setForm] = useState({email: '',password : ''});
+  // const [form,setForm] = useState({email: '',password : ''});
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const navigate = useNavigate()
   const handleSubmit = (e)=>{
     e.preventDefault();
-    console.log(form.email);
-    console.log(form.password);
-    let getData = localStorage.getItem('customer');
-    if(getData){
-      console.log(getData);
-      let parseData = JSON.parse(getData);
-      console.log(parseData);
-      console.log(parseData.email);
-      console.log(parseData.password)
-      console.log('get email ',form.email);
-      console.log('get password ',form.password)
-      if(form.email == parseData.email && form.password == parseData.password){
-        console.log('welcome')
-      }
-      else{
-        console.log('invalid')
-      }
-      
+   try{
+    if(!email) throw 'Email is required'
+    if(!password) throw 'Password is required'
+    let getData = JSON.parse(localStorage.getItem('users'))||[];
+    if(getData.length === 0) {
+      alert('No user found plz signup again')
+      navigate('/signup')
+      return
     }
+   
+    // find user with matching email
+    let foundUser = getData.find((user)=>{return user.email == email})
+    if(!foundUser) throw 'user not existed'
+    if(foundUser.password !== password){throw 'Incorrect password'}
+    // store current user in local storage 
+    alert('Login successfull')
+    navigate('/dashboard')
+   }
+    catch(error){
+      if(error) alert(error)
+    }
+   
+    }
+   
 
-  }
-  
-  return(
+    return(
     <form action="" onSubmit={handleSubmit}>
-      <input type="email" placeholder="email" 
-      onChange={(event)=>setForm({...form,email: event.target.value})}/><br/>
-      <input type="password" placeholder="password"  onChange={(event)=> setForm({...form,password: event.target.value})}/>
+
+      <input type="email" 
+      placeholder="email" 
+      onChange={(event)=>setEmail(event.target.value)}/><br/>
+
+      <input type="password"
+       placeholder="password"
+         onChange={(event)=>setPassword(event.target.value)}/>
+
       <button>login</button>
       <p>Do you have an account</p><button onClick={()=>navigate('/signup')}>sign up</button>
     </form>
   )
 
-}
+  }
+  
+  
+
+
 export default Login;
