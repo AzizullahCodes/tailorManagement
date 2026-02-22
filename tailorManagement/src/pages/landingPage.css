@@ -1,0 +1,135 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Wrapper */
+.landing-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Left Section */
+.landing-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  padding: 80px;
+}
+
+.landing-left h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.landing-left p {
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.landing-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.landing-buttons button {
+  padding: 15px 35px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-btn {
+  background: #fff;
+  color: #6366f1;
+}
+
+.signup-btn:hover {
+  background: #e0e7ff;
+}
+
+.login-btn {
+  background: #6366f1;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background: #4f46e5;
+}
+
+/* Right Section */
+.landing-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.landing-right img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .landing-wrapper {
+    flex-direction: column;
+  }
+  .landing-left, .landing-right {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    align-items: center;
+  }
+  .landing-left h1 {
+    font-size: 36px;
+  }
+  .landing-left p {
+    font-size: 16px;
+  }
+  .landing-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .landing-buttons button {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-left h1 {
+    font-size: 28px;
+  }
+  .landing-left p {
+    font-size: 14px;
+  }
+  .landing-buttons button {
+    width: 80%;
+    padding: 12px 0;
+  }
+  .landing-right img {
+    max-width: 60%;
+  }
+}

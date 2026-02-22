@@ -7,12 +7,15 @@ import AddCustomer from "./pages/addCustomer";
 import SearchCustomer from "./pages/searchCustomer";
 import ProtectedRoute from "./components/protectedRoutes";
 
+import Landing from "./pages/landingPage";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
         <Route

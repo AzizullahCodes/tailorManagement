@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./signup.css";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -9,7 +10,6 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  // Clear all inputs
   const clearInputs = () => {
     setName("");
     setEmail("");
@@ -21,7 +21,6 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      // Validation
       if (!name) throw new Error("Name is required");
       if (!email) throw new Error("Email is required");
       if (!password) throw new Error("Password is required");
@@ -30,118 +29,78 @@ function SignUp() {
       if (password !== repeatPassword)
         throw new Error("Passwords do not match");
 
-      // Get existing users
       let users = JSON.parse(localStorage.getItem("users")) || [];
-
-      // Check if email already exists
       let isExist = users.find((user) => user.email === email);
       if (isExist) throw new Error("This email already exists");
 
-      // Create user object
-      let newUser = {
-        name,
-        email,
-        password,
-      };
-
-      // Save user
+      let newUser = { name, email, password };
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
 
       alert("User registered successfully");
-
       clearInputs();
       navigate("/");
     } catch (error) {
       alert(error.message);
     }
   };
+
   return (
-    <div className="signup-container">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
+    <div className="signup-wrapper">
+      <div className="signup-container">
 
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
+        <div className="signup-left">
+          <div className="left-content">
+            <h1>Welcome!</h1>
+            <p>
+              Create your account and start building amazing experiences with us.
+            </p>
+          </div>
+        </div>
 
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
+        <div className="signup-right">
+          <h2>Create Account</h2>
 
-        <input
-          type="password"
-          placeholder="Repeat your password"
-          value={repeatPassword}
-          onChange={(e) => setRepeatPassword(e.target.value)}
-        />
-        <br />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
 
-        <button type="submit">Signup</button>
-      </form>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={repeatPassword}
+              onChange={(e) => setRepeatPassword(e.target.value)}
+            />
+
+            <button type="submit">Sign Up</button>
+            <p>Do you have already an account?</p>
+            <button className="btn2" onClick={()=>navigate('/')}>Login</button>
+          </form>
+        </div>
+
+      </div>
     </div>
   );
- 
 }
 
 export default SignUp;
 
 
-
-
-
-
-
-//  return (
-//     <div className="signup-container">
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="text"
-//           placeholder="Enter your name"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//         />
-//         <br />
-
-//         <input
-//           type="email"
-//           placeholder="Enter your email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-//         <br />
-
-//         <input
-//           type="password"
-//           placeholder="Enter your password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//         <br />
-
-//         <input
-//           type="password"
-//           placeholder="Repeat your password"
-//           value={repeatPassword}
-//           onChange={(e) => setRepeatPassword(e.target.value)}
-//         />
-//         <br />
-
-//         <button type="submit">Signup</button>
-//       </form>
-//     </div>
-//   );
