@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -87,49 +86,68 @@ html, body {
   padding: 50px;
 }
 
-.landing-right img {
-  max-width: 80%;
-  height: auto;
-}
+ .landing-right img {
+ width: 100%;
+  max-width: 800px;
+  height: auto; 
+    /* keeps layout stable */
+} 
 
-/* Responsive */
-@media (max-width: 1024px) {
+
+
+/* ========================= */
+/* Responsive Design */
+/* ========================= */
+
+@media (max-width: 768px) {
   .landing-wrapper {
     flex-direction: column;
   }
-  .landing-left, .landing-right {
+
+  .landing-left,
+  .landing-right {
     width: 100%;
-    padding: 40px;
+    padding: 30px 20px;
     text-align: center;
     align-items: center;
   }
+
   .landing-left h1 {
-    font-size: 36px;
+    font-size: 32px;
   }
+
   .landing-left p {
-    font-size: 16px;
+    font-size: 15px;
   }
+
   .landing-buttons {
     flex-direction: column;
-    gap: 15px;
+    width: 100%;
+    align-items: center;
   }
+
   .landing-buttons button {
-    width: 60%;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .landing-right img {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .landing-left h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
+
   .landing-left p {
     font-size: 14px;
   }
+
   .landing-buttons button {
-    width: 80%;
-    padding: 12px 0;
-  }
-  .landing-right img {
-    max-width: 60%;
+    padding: 12px;
+    font-size: 14px;
   }
 }

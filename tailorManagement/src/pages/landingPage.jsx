@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import machine from './../assets/images/machine.jfif'
 import "./landingPage.css";
 
 const Landing = () => {
@@ -33,7 +34,7 @@ const Landing = () => {
       <div className="landing-right">
         {/* Optional illustration */}
         <img
-          src="https://img.icons8.com/dusk/500/sewing-machine.png"
+             src="https://img.icons8.com/dusk/500/sewing-machine.png"
           alt="Tailor Illustration"
         />
       </div>
