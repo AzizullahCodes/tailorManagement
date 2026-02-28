@@ -1,25 +1,138 @@
+/* Container takes full screen width with padding */
 .add-container {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-}
-
-.add-form {
-  width: 400px;
   padding: 30px;
-  background: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f0f2f5;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.add-form input {
+/* Card takes full width with max limit */
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
   width: 100%;
-  padding: 10px;
+  max-width: 900px; /* increased width for modern look */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* Titles */
+h2 {
+  text-align: center;
+  color: #4b46b5;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 25px;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Form groups side by side */
+.form-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 
-.add-form button {
-  width: 100%;
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Labels and inputs */
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
   padding: 10px;
-  background: black;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4b46b5;
+  outline: none;
+  box-shadow: 0 0 8px rgba(75,70,181,0.3);
+}
+
+/* Save button */
+.save-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+/* Modern full-width table */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.modern-table th {
+  background: #4b46b5;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.modern-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.modern-table tbody tr:hover {
+  background: #e0e0ff;
+}
+
+.modern-table td div {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .form-row {
+    flex-direction: column;
+  }
+  .card {
+    padding: 20px;
+  }
 }

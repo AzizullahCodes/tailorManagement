@@ -39,7 +39,7 @@ function SignUp() {
 
       alert("User registered successfully");
       clearInputs();
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       alert(error.message);
     }
