@@ -112,8 +112,11 @@
 
 import { useEffect, useState } from "react";
 import "./AddCustomer.css";
+import { useNavigate } from "react-router-dom";
+
 
 function AddCustomer(){
+  const navigate = useNavigate();
   const [gender,setGender] = useState('');
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('')
@@ -207,6 +210,8 @@ function AddCustomer(){
           </>
         )}
         <button className="save-btn" onClick={saveRecord}>💾 Save Record</button>
+                <button className="save-btn" onClick={()=>navigate('/searchCustomer')}>💾 Save Record</button>
+
       </div>
     </div>
 
